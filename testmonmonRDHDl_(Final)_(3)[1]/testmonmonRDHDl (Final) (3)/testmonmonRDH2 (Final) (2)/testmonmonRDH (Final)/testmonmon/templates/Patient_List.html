@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Patients</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='table.css') }}" />
+</head>
+<body>
+
+<h1> Our Patients:</h1>
+
+    <table border="1">
+        <thead>
+            <tr align="center" style="background:#077A7D ">
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                 <th>Triage</th>
+                <th>Bed Number</th>  </tr>
+        </thead>
+        <tbody>
+
+            {% for patient in data %}  <tr>
+                <td>{{ patient.pid }}</td>
+                <td>{{ patient.fname }}</td>
+                <td>{{ patient.lname }}</td>
+                <td>{{ patient.triage }}</td>
+                <td>{{ patient.bnumber }}</td>
+
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+     </body>
+</html>

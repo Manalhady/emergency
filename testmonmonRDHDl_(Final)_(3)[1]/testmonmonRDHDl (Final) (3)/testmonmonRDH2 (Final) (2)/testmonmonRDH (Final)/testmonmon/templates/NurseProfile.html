@@ -1,0 +1,155 @@
+{% extends "navbar.html" %}
+
+{% block title %}NR. {{ nurse.fname }} {{ nurse.lname }}{% endblock %}
+
+{% block additional_styles %}
+    <link rel="stylesheet" href="../static/login.css">
+     <link rel="stylesheet" href="../static/table.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <!-- Profile Section -->
+    <div class="container light-style flex-grow-1 container-p-y" style="background-color:  #ececec">
+        <h4 class="font-weight-bold py-3 mb-4" style="color:#555 ">NR. {{ nurse.fname }} {{ nurse.lname }}</h4>
+
+        <div class="card overflow-hidden">
+            <div class="row no-gutters row-bordered row-border-light">
+
+                <!-- Sidebar -->
+                <div class="col-md-3 pt-0">
+                    <div class="list-group list-group-flush account-settings-links">
+                        <a class="list-group-item list-group-item-action active" data-toggle="list"
+                           href="#account-general"
+                           style="background-image: linear-gradient(to right,#0c3c50,#077A7D);border-color: #ffff; color:white">General</a>
+                        <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-contact"
+                           style="background-image: linear-gradient(to right,#0c3c50,#077A7D);border-color: #ffff; color:white">Contact
+                            Information</a>
+                        <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-ptlist"
+                           style="background-image: linear-gradient(to right,#0c3c50,#077A7D);border-color: #ffff; color: white">Patient
+                            List</a>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="col-md-9">
+
+                    <div class="card-body media align-items-center">
+                        <img src="../static/Media/default-avatar.png" alt="profilepic" , height="150">
+                    </div>
+
+                    <div class="tab-content">
+                        <!-- General Info -->
+                        <div class="tab-pane fade active show" id="account-general">
+                            <hr class="border-light m-0">
+                            <div class="card-body">
+
+                                <div class="form-group">
+                                    <p class="form-control-plaintext" id="profile-id">
+                                        <b> Full Name:</b> {{ nurse.fname }} {{ nurse.mname }} {{ nurse.lname }}</p>
+                                </div>
+
+                                <div class="form-group">
+                                    <p class="form-control-plaintext" id="profile-id"><b>Social Security Number:</b>
+                                         {{ nurse.nssn }}</p>
+                                </div>
+
+                                <div class="form-group">
+                                    <p class="form-control-plaintext" id="profile-id"> <b>ID:</b> {{ nurse.nid }}</p>
+                                </div>
+
+                                <div class="form-group">
+                                    <p class="form-control-plaintext" id="profile-id"><b>Sex:</b> {{ nurse.sex }}</p>
+                                </div>
+
+                                <div class="form-group">
+                                    <p class="form-control-plaintext" id="profile-id"><b>Age:</b> {{ nurse.age }}</p>
+                                </div>
+
+                                <div class="form-group">
+                                    <p class="form-control-plaintext" id="profile-id">
+                                        <b> Date of Birth:</b>{{ nurse.dateofbirth }}</p>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <p class="form-control-plaintext" id="profile-department">
+                                        <b>Department:</b>  {{ nurse.department }}</p>
+                                </div>
+                                <div class="form-group">
+                                    <p class="form-control-plaintext"
+                                       id="profile-specialisation"> <b>Speciality:</b> {{ nurse.speciality }}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Information -->
+                        <div class="tab-pane fade" id="account-contact">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <p class="form-control-plaintext" id="profile-phone"> <b>Mobile
+                                        Number: </b>{{ nurse.mobilenumber }}</p>
+                                </div>
+                                <div class="form-group">
+                                    <p class="form-control-plaintext" id="profile-address">
+                                      <b>Address:</b>   {{ nurse.address }}</p>
+                                </div>
+                                <div class="form-group">
+                                    <p class="form-control-plaintext" id="profile-email"><b>Email:</b> {{ nurse.email }}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Patient list -->
+                        <div class="tab-pane fade" id="account-ptlist">
+                            <div class="card-body">
+                                <table border="1">
+                                    <thead>
+                                    <tr align="center" style="background: lightblue">
+                                        <th>ID</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Triage</th>
+                                        <th>Bed Number</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    {% for patient in patients %}
+                                        <tr>
+                                            <td>{{ patient.pid }}</td>
+                                            <td>{{ patient.fname }}</td>
+                                            <td>{{ patient.lname }}</td>
+                                            <td>{{ patient.triage }}</td>
+                                            <td>{{ patient.bnumber }}</td>
+                                            <td><a href="/add_patient_record?pid={{ patient.pid }}"
+                                                   class="btn btn-sm btn-primary">
+                                                Add Patient Record
+                                            </a>
+                                            </td>
+
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Edit Button -->
+        <div class="text-right mt-3">
+            <a href="/edit_profile" class="btn btn-primary"
+               style="background-image: linear-gradient(to right,#0c3c50,#077A7D); border: none">Edit Profile</a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='scripts/doctor.js')}}"></script>
+{% endblock %}

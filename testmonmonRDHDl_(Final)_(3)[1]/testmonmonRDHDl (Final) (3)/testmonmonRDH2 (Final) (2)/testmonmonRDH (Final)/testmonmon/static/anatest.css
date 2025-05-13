@@ -1,0 +1,9 @@
+.chart-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.chart canvas {
+  width: 300px; /* Adjust the width as needed */
+  height: 300px; /* Adjust the height as needed */
+}

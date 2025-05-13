@@ -1,0 +1,102 @@
+{% extends 'NavBar.html' %}
+
+{% block title %}Blossom's Hospital{% endblock %}
+
+{% block content %}
+  <!---------------------------------Banner Section----------------------------------->
+  <section id="banner">
+    <div class="container text-center">
+      <div class="row align-items-center">
+        <div class="col-md-6 mx-auto">
+          <h1 class="promo-title display-4 fw-bold">BLOSSOM'S HOSPITAL</h1>
+          <p class="quote lead">"Healing is a Journey, and at Every Step, We Blossom into the Strength, Hope, and
+            Wellness We Deserve."</p>
+            <a href="#!" onclick="scrollToEmergency()" class="btn btn-light btn-lg mt-4 fw-bold">
+  Need Help? Contact Emergency Now
+</a>
+
+
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!---------------------------------Social media Section----------------------------------->
+<section id="emergency-steps" class="py-5 bg-light text-center">
+  <div class="container">
+    <h2 class="mb-4">What To Do in an Emergency</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <h5>📞 Call Us Immediately </h5>
+        <p>Dial our emergency hotline <strong>1234-567-890</strong> for rapid assistance.</p>
+      </div>
+      <div class="col-md-4">
+        <h5>🚑 Stay Calm and Safe</h5>
+        <p>Ensure your safety, and if possible, move to a secure location.</p>
+      </div>
+      <div class="col-md-4">
+        <h5>📝 Be Ready</h5>
+        <p>Prepare to describe the symptoms or situation clearly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="bg-white py-4">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <div class="p-4 bg-danger text-white rounded">
+          <h5>Emergency Hotline</h5>
+          <p class="lead fw-bold">1234-567-890</p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="p-4 bg-warning text-dark rounded">
+          <h5>Nearest Location</h5>
+          <p>Find Blossom's Emergency near you</p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="p-4 bg-success text-white rounded">
+          <h5>24/7 Available</h5>
+          <p>We're always open and ready to help</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!---------------------------------Footer Section----------------------------------->
+  <section id="footer">
+
+    <div class="container">
+      <div class="row justify-content-center text-center">
+          <div class="col-md-8">
+              <p class="fs-4 fw-semibold">FIND US ON SOCIAL MEDIA</p><div class="social-icons mb-3 d-flex justify-content-center gap-3 flex-wrap">
+            <a href="https://m.facebook.com/" class="text-decoration-none">
+                <img src="../static/Media/facebook-icon.png" alt="Facebook" width="60">
+            </a>
+            <a href="https://www.instagram.com/" class="text-decoration-none">
+                <img src="../static/Media/instagram-icon.png" alt="Instagram" width="60">
+            </a>
+             <a href="https://www.linkedin.com/" class="text-decoration-none">
+                 <img src="../static/Media/linkedin-icon.png" alt="LinkedIn" width="60">
+             </a>
+             <a href="https://www.whatsapp.com/" class="text-decoration-none">
+                 <img src="../static/Media/whatsapp-icon.png" alt="WhatsApp" width="60">
+             </a>
+         </div>
+          <p class="small mt-3">&copy; 2024 Blossom's Hospital. All Rights Reserved.</p>
+      </div>
+      </div>
+
+      </div>
+  <script src="{{ url_for('static', filename='scripts/main.js') }}">
+
+</script>
+
+
+  </section>
+{% endblock %}

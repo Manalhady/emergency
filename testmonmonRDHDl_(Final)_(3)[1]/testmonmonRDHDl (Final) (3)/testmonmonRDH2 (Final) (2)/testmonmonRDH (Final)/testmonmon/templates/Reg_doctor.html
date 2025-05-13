@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Doctor Registration</title>
+    <link rel="stylesheet" href="../static/registration.css" />
+  </head>
+
+  <body>
+    <section class="container">
+      <header>Doctor Registration</header>
+         {% if error_message %}
+      <div class="error-message">
+        {{ error_message }}
+      </div>
+    {% endif %}
+
+      <form action="/submit_doctor_reg" method="POST" class="form" enctype="multipart/form-data">
+        <div class="circle-container">
+          <img id="photoPreview" src="../static/Media/default-avatar.png"  alt="profile picture">
+        </div>
+        <label for="photoUpload" class="file-input-label">Upload Photo</label>
+        <input type="file" id="photoUpload" name="profilepicture" class="form-control" accept="image/*" onchange="previewImage(event)">
+
+        <div class="column">
+          <div class="input-box">
+              <label>
+                  <input type="text" name="fname" placeholder="First Name" required />
+              </label>
+          </div>
+          <div class="input-box">
+              <label>
+                  <input type="text" name="mname" placeholder="Middle Name" required />
+              </label>
+          </div>
+          <div class="input-box">
+              <label>
+                  <input type="text" name="lname" placeholder="Last Name" required />
+              </label>
+          </div>
+        </div>
+
+        <div class="input-box">
+            <label>
+                <input type="email" name="email" placeholder="Email Address" required />
+            </label>
+        </div>
+
+        <div class="column">
+          <div class="input-box">
+              <label>
+                  <input type="tel" name="mobileNumber" placeholder="mobile number" required />
+              </label>
+          </div>
+
+          <div class="input-box">
+              <label>
+                  <input type="date" name="dateofbirth" required />
+              </label>
+          </div>
+
+          <div class="input-box">
+            <input type="number" class="form-control" name="age" placeholder="Age" required min="0" aria-label="Age">
+          </div>
+        </div>
+
+        <div class="gender-box">
+          <h3>Sex</h3>
+          <div class="gender-option">
+            <div class="gender">
+              <input type="radio" id="check-male" name="sex" value="Male"  />
+              <label for="check-male">Male</label>
+            </div>
+
+            <div class="gender">
+              <input type="radio" id="check-female" name="sex" value="Female" />
+              <label for="check-female">Female</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+
+
+          <div class="input-box">
+              <label>
+                  <input type="text" name="dssn" placeholder="Doctor SSN" required />
+              </label>
+          </div>
+             <div class="input-box">
+              <label>
+                  <input type="text" name="did" placeholder="Doctor ID" required />
+              </label>
+          </div>
+
+          <div class="input-box">
+              <label>
+                  <input type="text" name="department" placeholder="Department" required />
+              </label>
+          </div>
+
+          <div class="input-box">
+              <label>
+                  <input type="text" name="speciality" placeholder="Speciality" required />
+              </label>
+          </div>
+        </div>
+
+
+
+        <div class="input-box">
+            <label>
+                <input type="text" class="form-control" name="address" placeholder="Address" required>
+            </label>
+        </div>
+          <div class="input-box">
+            <label>
+                <input type="text" class="form-control" name="profilepicture" placeholder="profilepicture">
+            </label>
+        </div>
+          <div class="input-box">
+            <label>
+                <input type="text" class="form-control" name="password" placeholder="password" required>
+            </label>
+        </div>
+
+
+
+        <button type="submit" class="btn btn-primary w-100"
+          style="background-image: linear-gradient(to right,#d9d9d1,#8b98c2);border: none;">Register</button>
+      </form>
+    </section>
+
+    <script>
+      // Function to preview the uploaded image
+      function previewImage(event) {
+        const reader = new FileReader();
+        reader.onload = function() {
+          const output = document.getElementById('photoPreview');
+          output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+      }
+    </script>
+  </body>
+</html>

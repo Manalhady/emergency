@@ -1,0 +1,61 @@
+{% extends "navbar.html" %}
+
+{% block title %}Log In{% endblock %}
+
+{% block additional_styles %}
+<link rel="stylesheet" href="../static/login.css">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid login-wrapper d-flex justify-content-center align-items-center min-vh-100">
+
+    <div class="col-md-6 login-form p-5 rounded-5 shadow">
+
+        <div class="text-center mb-4">
+            <h2 class="header-text" style="font-family: sans-serif; color: #fff; font-size: 40px; font-weight: 600;">Log In</h2>
+        </div>
+
+        <form action="/login" method="POST" id="login-form">
+
+            <div class="input-group mb-3 text-white">
+                <label class="form-label d-block">Choose Speciality</label>
+
+                <div class="d-flex flex-wrap">
+                    <div class="form-check me-3">
+                        <input class="form-check-input" type="radio" name="Speciality" value="doctor" required>
+                        <label class="form-check-label">Doctor</label>
+                    </div>
+                    <div class="form-check me-3">
+                        <input class="form-check-input" type="radio" name="Speciality" value="nurse" required>
+                        <label class="form-check-label">Nurse</label>
+                    </div>
+                    <div class="form-check me-3">
+                        <input class="form-check-input" type="radio" name="Speciality" value="patient" required>
+                        <label class="form-check-label">Patient</label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="input-group mb-3">
+                <input type="text" class="form-control form-control-lg bg-light fs-6" placeholder="Name" required>
+            </div>
+
+            <div class="input-group mb-3">
+                <input type="text" class="form-control form-control-lg bg-light fs-6" placeholder="ID" name="id" required>
+            </div>
+
+            <div class="input-group mb-3">
+                <input type="password" class="form-control form-control-lg bg-light fs-6" name="password" placeholder="Password" required>
+            </div>
+
+            <div class="input-group mb-3">
+                <button type="submit" class="btn btn-lg btn-primary w-100 fs-6" style="font-weight: 600; background-image: linear-gradient(to right,#0c3c50,#077A7D); border: none;">
+                    Log In
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>
+{% endblock %}

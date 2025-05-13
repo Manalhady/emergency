@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nurses</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='table.css') }}" />
+</head>
+<body>
+
+<h1> Our Nurses:</h1>
+
+    <table border="1">
+        <thead>
+            <tr align="center" style="background: lightblue">
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Middle Name</th>
+
+                <th>Department</th>  </tr>
+        </thead>
+        <tbody>
+          {% for nurse in data %}  <tr>
+                <td>{{ nurse.nid }}</td>
+                <td>{{ nurse.fname }}</td>
+                <td>{{ nurse.lname }}</td>
+                <td>{{ nurse.department}}</td>
+              <td>
+                <form method="POST" action="{{ url_for('delete_nurse') }}">
+                  <input type="hidden" name="nurse_id" value="{{ nurse.nid }}">
+                  <button type="submit" class="custom-btn">Delete</button>
+                </form>
+             </td>
+          </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+    <div class="center-button">
+      <a href="/signup" class="custom-btn">ADD</a>
+    </div>
+   </body>
+</html>

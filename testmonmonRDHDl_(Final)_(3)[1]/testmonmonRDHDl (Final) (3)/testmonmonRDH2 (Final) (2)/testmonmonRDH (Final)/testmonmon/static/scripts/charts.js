@@ -1,0 +1,94 @@
+ fetch('/data')
+  .then(response => response.json())
+  .then(data => {
+    const labels = data.map(item => item.speciality);
+    const values = data.map(item => item.count);
+
+      const ctx = document.getElementById('myChart').getContext('2d');
+
+      const myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Doctor Specialities',
+            data: values,
+            backgroundColor: [
+              'rgb(255, 99, 132)',
+              'rgb(54, 162, 235)',
+              'rgb(255, 205, 86)'
+            ],
+            hoverOffset: 4
+          }]
+        },
+        options: {
+          title: {
+            display: true,
+            text: "Doctor Specialities"
+          }
+        }
+      });
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
+    });
+        fetch('/datap')
+  .then(response => response.json())
+  .then(data => {
+    const labels = data.map(item => item.department);
+    const values = data.map(item => item.count);
+
+    const ctx = document.getElementById('myChart1').getContext('2d');
+    const myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: "Patient's case",
+          data: values,
+          backgroundColor: [
+            'rgb(99,255,226)',
+            'rgb(54, 162, 235)',
+            'rgb(255, 205, 86)'
+          ],
+          hoverOffset: 4
+        }]
+      },
+        options: {
+        title:{display: true, text:"patient's case"}
+      }
+    });
+  })
+  .catch(error => {
+    console.error('Error fetching data:', error);
+  });
+      fetch('/dataN')
+  .then(response => response.json())
+  .then(data => {
+    const labels = data.map(item => item.department);
+    const values = data.map(item => item.count);
+
+    const ctx = document.getElementById('myChart2').getContext('2d');
+    const myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'nurse department',
+          data: values,
+          backgroundColor: [
+            'rgb(216,99,255)',
+            'rgb(54, 162, 235)',
+            'rgb(255, 205, 86)'
+          ],
+          hoverOffset: 4
+        }]
+      },
+        options: {
+        title:{display: true, text:"nurse department"}
+      }
+    });
+  })
+  .catch(error => {
+    console.error('Error fetching data:', error);
+  });

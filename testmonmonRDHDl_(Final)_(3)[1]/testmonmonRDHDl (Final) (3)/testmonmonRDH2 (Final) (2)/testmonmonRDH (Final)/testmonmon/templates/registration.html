@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Patient Registration</title>
+    <link rel="stylesheet" href="../static/registration.css" />
+  </head>
+
+  <body>
+    <section class="container">
+      <header>Patient Registration</header>
+
+      <form action="/submit_registration" method="POST" class="form" enctype="multipart/form-data">
+        <div class="circle-container">
+          <img id="photoPreview" src="../static/Media/default-avatar.png"  alt="profile picture">
+        </div>
+        <label for="photoUpload" class="file-input-label">Upload Photo</label>
+        <input type="file" id="photoUpload" name="profilepicture" class="form-control" accept="image/*" onchange="previewImage(event)">
+
+        <div class="column">
+          <div class="input-box">
+              <label>
+                  <input type="text" name="fname" placeholder="First Name" required />
+              </label>
+          </div>
+          <div class="input-box">
+              <label>
+                  <input type="text" name="mname" placeholder="Middle Name" required />
+              </label>
+          </div>
+          <div class="input-box">
+              <label>
+                  <input type="text" name="lname" placeholder="Last Name" required />
+              </label>
+          </div>
+        </div>
+
+        <div class="input-box">
+            <label>
+                <input type="email" name="email" placeholder="Email Address" required />
+            </label>
+        </div>
+
+        <div class="column">
+          <div class="input-box">
+              <label>
+                  <input type="tel" name="mobileNumber" placeholder="mobile number" required />
+              </label>
+          </div>
+
+          <div class="input-box">
+              <label>
+                  <input type="date" name="dateofbirth" required />
+              </label>
+          </div>
+
+          <div class="input-box">
+            <input type="number" class="form-control" name="age" placeholder="Age" required min="0" aria-label="Age">
+          </div>
+        </div>
+
+        <div class="gender-box">
+          <h3>Sex</h3>
+          <div class="gender-option">
+            <div class="gender">
+              <input type="radio" id="check-Male" name="sex" value="Male" />
+              <label for="check-Male">Male</label>
+            </div>
+
+            <div class="gender">
+              <input type="radio" id="check-Female" name="sex" value="Female" />
+              <label for="check-Female">Female</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="input-box">
+              <label>
+                  <input type="text" name="pid" placeholder="Patient ID" required />
+              </label>
+          </div>
+
+          <div class="input-box">
+              <label>
+                  <input type="text" name="pssn" placeholder="Patient SSN" required />
+              </label>
+          </div>
+
+          <div class="input-box">
+              <label>
+                  <input type="text" name="nationality" placeholder="Nationality" required />
+              </label>
+          </div>
+
+          <div class="input-box">
+              <label>
+                  <input type="text" name="bnumber" placeholder="Bed Number" required />
+              </label>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="input-box">
+              <label>
+                  <input type="text" name="occupation" placeholder="Occupation" required />
+              </label>
+          </div>
+
+          <div class="input-box">
+              <label>
+                  <input type="text" name="nssn" placeholder="Nurse SSN" required />
+              </label>
+          </div>
+
+          <div class="input-box">
+              <label>
+                  <input type="text" name="rssn" placeholder="Receptionist SSN" required />
+              </label>
+          </div>
+        </div>
+
+        <div class="input-box">
+            <label>
+                <input type="text" class="form-control" name="address" placeholder="Address" required>
+            </label>
+        </div>
+           <div class="input-box">
+            <label>
+                <input type="text" class="form-control" name="password" placeholder="password" required>
+            </label>
+        </div>
+
+        <div class="column">
+          <div class="input-box">
+            <label for="bloodType"></label>
+            <select id="bloodType" class="form-select" name="bloodtype" required>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+            </select>
+          </div>
+
+          <div class="input-box">
+            <label for="inputState"></label>
+            <select id="inputState" class="form-select" name="triage" required>
+              <option selected>Triage</option>
+              <option value="Routine">Routine</option>
+              <option value="Urgent">Urgent</option>
+              <option value="Critical">Critical</option>
+              <option value="Resuscitative">Resuscitative</option>
+              <option value="Deceased">Deceased</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100"
+          style="background-image: linear-gradient(to right,#077A7D,#7AE2CF);border: none;">Register</button>
+      </form>
+    </section>
+
+    <script>
+      // Function to preview the uploaded image
+      function previewImage(event) {
+        const reader = new FileReader();
+        reader.onload = function() {
+          const output = document.getElementById('photoPreview');
+          output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+      }
+    </script>
+  <script src="{{ url_for('static', filename='scripts/counter.js') }}">
+
+</script>
+  </body>
+</html>

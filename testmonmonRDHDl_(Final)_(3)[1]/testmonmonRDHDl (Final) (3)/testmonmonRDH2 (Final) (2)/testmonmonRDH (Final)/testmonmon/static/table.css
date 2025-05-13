@@ -1,0 +1,66 @@
+body{
+ background-image: linear-gradient(to right,#077A7D,#7AE2CF);
+    color:white;
+}
+.html{
+  color: rgb(25, 94, 54);
+}
+.css{
+  color: rgb(104, 179, 35);
+}
+.js{
+  color: #077A7D;
+}
+table {
+    width: 80%; /* Adjust width as needed */
+    margin: 50px auto; /* Center horizontally and add top/bottom margin */
+    border-collapse: collapse; /* Collapse borders for a cleaner look */
+    border: 3px double #ccc; /* Double border */
+    background-color: #ececec; /* Darker background */
+    color: black; /* White text */
+}
+
+th, td {
+    border: 2px double #ccc; /* Border for cells */
+    padding: 10px;
+    text-align: left; /* Align text to the left */
+}
+
+th {
+    background-color: #077A7D;/* Slightly darker background for header */
+    color: white;
+}
+
+/* Optional: Add hover effect to table rows */
+.custom-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 18px;
+  color: white;
+  background-color: #077A7D;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.custom-btn:hover {
+  background: linear-gradient(to right, #066b6c, #5bcdb7);
+}
+h1{
+    color: peachpuff;
+}
+.center-button {
+  text-align: center; /* centers content horizontally */
+  margin-top: 40px;   /* optional spacing from top */
+}
+.btn{
+    background: #5bcdb7;
+}
+.custom-table {
+    width: 80%; /* or 600px */
+}
+h3{
+    color: peachpuff;
+}

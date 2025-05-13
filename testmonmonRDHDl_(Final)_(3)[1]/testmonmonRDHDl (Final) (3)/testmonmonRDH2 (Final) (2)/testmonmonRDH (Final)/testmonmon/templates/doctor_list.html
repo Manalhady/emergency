@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doctors</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='table.css') }}" />
+</head>
+<body>
+
+<h1> Our Doctors:</h1>
+
+
+    <table id="doctorTable" border="1">
+        <thead>
+            <tr align="center" style="background: lightblue">
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Speciality</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+         {% for doctor in data %}  <tr>
+                <td>{{ doctor.did }}</td>
+                <td>{{ doctor.fname }}</td>
+                <td>{{ doctor.lname }}</td>
+                <td>{{ doctor.speciality }}</td>
+             <td>
+                <form method="POST" action="{{ url_for('delete_doctor') }}">
+                  <input type="hidden" name="doctor_id" value="{{ doctor.did }}">
+                  <button type="submit" class="custom-btn">Delete</button>
+                </form>
+             </td>
+            {% endfor %}
+
+        </tbody>
+    </table>
+    <div class="center-button">
+      <a href="/signup" class="custom-btn">ADD</a>
+    </div>    </body>
+
+</html>

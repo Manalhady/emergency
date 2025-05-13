@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Receptionists</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='table.css') }}" />
+</head>
+<body>
+
+<h1> Our Receptionists:</h1>
+
+    <table border="1">
+        <thead>
+            <tr align="center" style="background: lightblue">
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+
+        </thead>
+        <tbody>
+
+            {% for Register in data %}  <tr>
+                <td>{{ Register.rid }}</td>
+                <td>{{ Register.fname }}</td>
+                <td>{{ Register.lname }}</td>
+                <td>
+                <form method="POST" action="{{ url_for('delete_reception') }}">
+                  <input type="hidden" name="reception_id" value="{{ receptionist.rid }}">
+                  <button type="submit" class="custom-btn">Delete</button>
+                </form>
+             </td>
+                  </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="center-button">
+      <a href="/signup" class="custom-btn">ADD</a>
+    </div>
+</body>
+</html>

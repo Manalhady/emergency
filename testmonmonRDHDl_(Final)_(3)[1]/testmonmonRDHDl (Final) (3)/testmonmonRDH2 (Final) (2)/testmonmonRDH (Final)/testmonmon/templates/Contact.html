@@ -1,0 +1,54 @@
+{% extends "navbar.html" %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block additional_styles %}
+<link rel="stylesheet" href="../static/login.css">
+{% endblock %}
+
+{% block content %}
+    <!-- Main Container -->
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+
+        <!-- Contact Container -->
+        <div class="col-md-6 border rounded-5 p-4 bg-white shadow">
+            <div class="text-center mb-4">
+                <h2 style="font-family: sans-serif; color: #555; font-size: 40px; font-weight: 600;">Contact Us</h2>
+            </div>
+
+            <form action="#" method="POST" id="contact-form">
+                <!-- Name Input -->
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control form-control-lg bg-light fs-6" placeholder="Your Name"
+                        name="name" required aria-label="Name">
+                </div>
+
+                <!-- Email Input -->
+                <div class="input-group mb-3">
+                    <input type="email" class="form-control form-control-lg bg-light fs-6" placeholder="Your Email"
+                        name="email" required aria-label="Email">
+                </div>
+
+                <!-- Subject Input -->
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control form-control-lg bg-light fs-6" placeholder="Subject"
+                        name="subject" required aria-label="Subject">
+                </div>
+
+                <!-- Message Input -->
+                <div class="input-group mb-3">
+                    <textarea class="form-control form-control-lg bg-light fs-6" rows="5" placeholder="Your Message"
+                        name="message" required aria-label="Message"></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="input-group mb-3">
+                    <button type="submit" class="btn btn-lg btn-primary w-100 fs-6"
+                        style="font-weight: 600; background:#0c3c50; border: none;">
+                        Send Message
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

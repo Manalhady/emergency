@@ -1,0 +1,111 @@
+<span style="font-family: verdana, geneva, sans-serif;"> <!DOCTYPE html>
+  <html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="../static/style.css" />
+  <!-- Font Awesome Cdn Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <ul>
+        <li><a href="#" class="logo">
+          <img src="../static/Media/L1.jpg" alt="">
+          <span class="nav-item">Admin</span>
+        </a></li>
+        <li><a href="/home">
+          <i class="fas fa-home"></i>
+          <span class="nav-item">Home</span>
+        </a></li>
+
+
+        <li><a href='/submit_doctor_reg'>
+          <i class="fas fa-pen"></i>
+          <span class="nav-item">ADD Doctor</span>
+        </a></li>
+          <li><a href='/submit_nurse_reg'>
+          <i class="fas fa-pen"></i>
+          <span class="nav-item">ADD Nurse</span>
+        </a></li>
+           <li><a href='/submit_reception_reg' >
+          <i class="fas fa-pen"></i>
+          <span class="nav-item" >ADD Receptionist</span>
+        </a></li>
+          <li><a href='/patients_without_doctors'>
+          <i class="fas fa-pen"></i>
+          <span class="nav-item">New</span>
+        </a></li>
+
+
+      </ul>
+    </nav>
+
+    <section class="main">
+      <div class="main-top">
+        <h1>Dashboard</h1>
+        <i class="fas fa-user-cog"></i>
+      </div>
+      <div class="main-skills">
+        <div class="card">
+          <i class="fas fa-user-md"></i>
+          <h3>Doctors</h3>
+          <p>Do you want to see the list?</p>
+            <p class="counter" data-target="32">0</p>
+          <a href="/doclist"><button>click here</button></a>
+        </div>
+        <div class="card">
+          <i class="fas fa-user-nurse"></i>
+          <h3>Nurses</h3>
+          <p>Do you want to see the list?</p>
+            <p class="counter" data-target="12">0</p>
+         <a href="/N_list"><button>click here</button></a>
+        </div>
+        <div class="card">
+          <i class="fas fa-user-injured"></i>
+          <h3>Patients</h3>
+          <p>Do you want to see the list?</p>
+            <p class="counter" data-target="22">0</p>
+          <a href="/P_list"><button>click here</button></a>
+        </div>
+        <div class="card">
+          <i class="fas fa-users-cog"></i>
+          <h3>Receptionists</h3>
+          <p>Do you want to see the list?</p>
+            <p class="counter" data-target="2">0</p>
+          <a href="/reception"><button>click here</button></a>
+        </div>
+
+      </div>
+
+      <section class="main-course">
+        <h1>Analytics</h1>
+        <div class="course-box">
+          <div class="course">
+            <div class="box">
+              <h3>Doctors</h3>
+               <canvas id="myChart"></canvas>
+            </div>
+            <div class="box">
+              <h3>Patients</h3>
+              <canvas id="myChart1"></canvas>
+            </div>
+            <div class="box">
+              <h3>Nurses</h3>
+              <canvas id="myChart2"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </div>
+<script>
+
+
+</script>
+  <script src="{{ url_for('static', filename='scripts/counter.js') }}"> </script>
+  <script src="{{ url_for('static', filename='scripts/charts.js') }}"> </script>
+</body>
+</html></span>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assign Doctor</title>
+     <link rel="stylesheet" href="{{ url_for('static', filename='table.css') }}" />
+</head>
+<body>
+<table id="Recent_Patients" border="1">
+    <thead>
+    <tr align="center" style="background: lightblue">
+        <th>PSSN</th>
+        <th>PID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Assign Doctor</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for patient in data %}
+        <tr>
+            <td>{{ patient.pssn }}</td>
+            <td>{{ patient.pid }}</td>
+            <td>{{ patient.fname }}</td>
+            <td>{{ patient.lname }}</td>
+            <td>
+                <form action="/assign_doctor" method="POST">
+                    <input type="hidden" name="patientssn" value="{{ patient.pssn }}">
+                    <input type="text" name="doctorssn" placeholder="Enter Doctor SSN" required>
+                    <button type="submit">Assign</button>
+                </form>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>
